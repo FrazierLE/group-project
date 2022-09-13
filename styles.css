@@ -6,12 +6,21 @@
   justify-content: center;
 }
 
+#tester-box {
+justify-content: center;
+}
+
 #color-section-1 {
   border-style: dotted;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #box-1 {
   border-style: dotted;
+  height: 5vh;
+  width: 5vw;
+  background: blue;
 }
 
 #color-1 {
@@ -24,12 +33,28 @@
 
 main {
   border-style: dashed;
+  height: 100vh;
+  width: 60vw;
 }
 
-body {
+header {
+  justify-content: center;
+}
+#buttons {
+  justify-content: center;
+  justify-content: space-evenly;
+  margin-top: 5vh;
+  border-style: dotted;
+}
+
+#right-section {
+  justify-content: center;
+  width: 40vw;
+}
+/* body {
   height: 100vh;
   width: 100vw;
-}
+} */
 
 div {
   border: 3px solid black;
