@@ -2,10 +2,6 @@
   display: flex;
 }
 
-#left-section {
-  justify-content: center;
-}
-
 .info-box {
 justify-content: center;
 align-items: center;
@@ -26,41 +22,42 @@ font-size: 20px;
   background: blue;
 }
 
-#color-1 {
-  border-style: dotted;
-}
-
 .lock-size {
   border-style: dotted;
-  height: 5vh
+  height: 5vh;
 }
 
 main {
   border-style: dashed;
   height: 100vh;
-  width: 60vw;
+  width: 70%;
 }
 
 header {
   justify-content: center;
 }
+
+div {
+  border: 3px solid black;
+}
+
+#right-section {
+  justify-content: center;
+  width: 30%;
+  border-style: dashed;
+}
+
+#left-section {
+  justify-content: center;
+}
+
+#color-1 {
+  border-style: dotted;
+}
+
 #buttons {
   justify-content: center;
   justify-content: space-evenly;
   margin-top: 5vh;
   border-style: dotted;
-}
-
-#right-section {
-  justify-content: center;
-  width: 40vw;
-  border-style: dashed;
-}
-/* body {
-  height: 100vh;
-  width: 100vw;
-} */
-
-div {
-  border: 3px solid black;
 }
