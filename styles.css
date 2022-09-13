@@ -1,0 +1,36 @@
+.flex {
+  display: flex;
+}
+
+#left-section {
+  justify-content: center;
+}
+
+#color-section-1 {
+  border-style: dotted;
+}
+
+#box-1 {
+  border-style: dotted;
+}
+
+#color-1 {
+  border-style: dotted;
+}
+
+#lock-1 {
+  border-style: dotted;
+}
+
+main {
+  border-style: dashed;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+div {
+  border: 3px solid black;
+}
