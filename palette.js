@@ -1,9 +1,26 @@
+var color1 = new Color();
+var color2 = new Color();
+var color3 = new Color();
+var color4 = new Color();
+var color5 = new Color();
+
+color1.randomizeColor();
+color2.randomizeColor();
+color3.randomizeColor();
+color4.randomizeColor();
+color5.randomizeColor();
+
+var colors = [color1, color2, color3, color4, color5];
+
 class Palette {
-  constructor(testColorObject1, testColorObject2, testColorObject3, testColorObject4, testColorObject5) {
-    this.color1  = testColorObject1.hexCode;
-    this.color2  = testColorObject2.hexCode;
-    this.color3  = testColorObject3.hexCode;
-    this.color4  = testColorObject4.hexCode;
-    this.color5  = testColorObject5.hexCode;
+  constructor(colors) {
+    this.colors = colors;
+    this.id = paletteID;
+    paletteID++;
   }
-}
+  updateColors() {
+    for (var i = 0; i < this.colors.length; i++) {
+      this.colors[i].randomizeColor();
+    };
+  };
+};
