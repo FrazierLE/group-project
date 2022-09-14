@@ -39,16 +39,20 @@ box4Label.innerText = testPalette.colors[3].hexCode;
 box5Color.style.background = testPalette.colors[4].hexCode;
 box5Label.innerText = testPalette.colors[4].hexCode;
 
+var newPaletteBttn = document.querySelector("#new-palette");
 
-//GOAL: when the user first visits the page,
-//they see a randomly generated color palette.
+newPaletteBttn.addEventListener("click", generatePalette);
 
-//DATA: we have a palette class, color class, html is setup,
-//and css is setup
-
-//QUESTIONS/RESEATCH: how to page loads work? match up
-//hexcodes to show on the DOM?
-
-//PSEUDOCODE:
-//change innertext of hexCode labels
-//set up classes in css (background color)
+function generatePalette(){
+  testPalette.updateColors();
+    box1Color.style.background = testPalette.colors[0].hexCode;
+    box1Label.innerText = testPalette.colors[0].hexCode;
+    box2Color.style.background = testPalette.colors[1].hexCode;
+    box2Label.innerText = testPalette.colors[1].hexCode;
+    box3Color.style.background = testPalette.colors[2].hexCode;
+    box3Label.innerText = testPalette.colors[2].hexCode;
+    box4Color.style.background = testPalette.colors[3].hexCode;
+    box4Label.innerText = testPalette.colors[3].hexCode;
+    box5Color.style.background = testPalette.colors[4].hexCode;
+    box5Label.innerText = testPalette.colors[4].hexCode;
+}
