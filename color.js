@@ -15,4 +15,4 @@ class Color {
       this.hexCode = newHexCode;
     }
   }
-};
+}
