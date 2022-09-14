@@ -5,11 +5,31 @@
 // Don’t look up how to accomplish this; challenge yourselves to use pseudocode to problem-solve through it!
 // It should have a property of locked, whose value is a boolean. Colors begin unlocked.
 
-class Color {
-  constructor() {
+// Stores all characters that might appear in a hex code
 
+class Color {
+  constructor(locked) {
+    this.hexCode = "#24680A";
+    this.locked = locked || false;
   }
-}
+
+    randomizeHexCode() {
+      var hexCodeDigits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
+      var newHexCode = "#";
+      for (var i = 0; i < 6; i++) {
+        var randomCharacter = hexCodeDigits[Math.floor(Math.random() * hexCodeDigits.length)];
+        newHexCode += randomCharacter;
+      }
+      this.hexCode = newHexCode;
+      return;
+    }
+  }//end of class
+
+  var testColor = new Color();
+  var testColor2 = new Color();
+
+  testColor.randomizeHexCode();
+  testColor2.randomizeHexCode();
 
 
 //pseudocode
