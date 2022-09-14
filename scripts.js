@@ -56,3 +56,18 @@ function generatePalette(){
     box5Color.style.background = testPalette.colors[4].hexCode;
     box5Label.innerText = testPalette.colors[4].hexCode;
 }
+
+
+//GOAL: user clicks save palette and colors should appear
+//on right side. No hexcode, just color and trash picture
+
+//DATA: we got HTML, CSS file
+
+//QUESTIONS: how to use flexbox to our advantage
+
+//PSEUDOCODE:
+//make containers for our saved palletes
+//make a saved palette array in script.js
+//romcom style inner html to stack dynamically with containers
+//make an event listener to register click w/ function
+//function += html containers

@@ -21,6 +21,12 @@ font-size: 20px;
   width: 80px;
 }
 
+.mini-box {
+  border-style: dotted;
+  height: 20px;
+  width: 20px;
+}
+
 .lock-size {
   border-style: dotted;
   height: 5vh;
@@ -41,9 +47,15 @@ div {
 }
 
 #right-section {
-  justify-content: center;
+  align-items: center;
   width: 30%;
   border-style: dashed;
+  flex-direction: column;
+}
+
+#saved1{
+  width: 60%;
+  justify-content: space-evenly;
 }
 
 #left-section {
