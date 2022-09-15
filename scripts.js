@@ -1,4 +1,4 @@
-var paletteID = 0;
+var paletteID = 1;
 
 var color1 = new Color();
 var color2 = new Color();
@@ -33,7 +33,6 @@ newPaletteBttn.addEventListener("click", generatePalette);
 savePaletteBttn.addEventListener("click", savePalette);
 
 function generatePalette() {
-  paletteID++;
   currentPalette.updateColors();
   for (i = 0; i < 5; i++) {
     boxColors[i].style.background = currentPalette.colors[i].hexCode;
@@ -42,15 +41,11 @@ function generatePalette() {
 }
 
 function savePalette() {
-  if (savedPalettes.length === 0) {
-    savedPalettes.unshift(currentPalette);
+  if (savedPalettes.length === 0 || currentPalette.id !== savedPalettes[0].id) {
+    var newSavedPalette = new Palette(currentPalette.colors);
+    savedPalettes.unshift(newSavedPalette);
     buildSavedPalette();
   }
-  else if (currentPalette.id !== savedPalettes[0].id) {
-    savedPalettes.unshift(currentPalette);
-    buildSavedPalette()
-  }
-  console.log(savedPalettes)
 }
 
 function buildSavedPalette() {
