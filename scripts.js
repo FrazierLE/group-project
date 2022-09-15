@@ -32,18 +32,13 @@ generatePalette();
 newPaletteBttn.addEventListener("click", generatePalette);
 savePaletteBttn.addEventListener("click", savePalette);
 
-function generatePalette(){
-  testPalette.updateColors();
-    box1Color.style.background = testPalette.colors[0].hexCode;
-    box1Label.innerText = testPalette.colors[0].hexCode;
-    box2Color.style.background = testPalette.colors[1].hexCode;
-    box2Label.innerText = testPalette.colors[1].hexCode;
-    box3Color.style.background = testPalette.colors[2].hexCode;
-    box3Label.innerText = testPalette.colors[2].hexCode;
-    box4Color.style.background = testPalette.colors[3].hexCode;
-    box4Label.innerText = testPalette.colors[3].hexCode;
-    box5Color.style.background = testPalette.colors[4].hexCode;
-    box5Label.innerText = testPalette.colors[4].hexCode;
+function generatePalette() {
+  paletteID++;
+  currentPalette.updateColors();
+  for (i = 0; i < 5; i++) {
+    boxColors[i].style.background = currentPalette.colors[i].hexCode;
+    boxLabels[i].innerText = currentPalette.colors[i].hexCode;
+  }
 }
 
 
