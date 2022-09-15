@@ -1,4 +1,4 @@
-var paletteID = 0;
+var paletteID = 1;
 
 var color1 = new Color();
 var color2 = new Color();
@@ -35,6 +35,8 @@ newPaletteBttn.addEventListener("click", generatePalette);
 savePaletteBttn.addEventListener("click", savePalette);
 
 function generatePalette() {
+  savePaletteBttn.disabled = false;
+  savePaletteBttn.innerText = "Save Palette";
   defaultPalette.updateColors();
   for (i = 0; i < 5; i++) {
     boxColors[i].style.background = defaultPalette.colors[i].hexCode;
@@ -42,41 +44,13 @@ function generatePalette() {
   }
 }
 
-// function savePalette() {
-//   if (savedPalettes.length === 0 || defaultPalette.id !== savedPalettes[0].id) {
-//     var newSavedPalette = new Palette(defaultPalette.colors);
-//     savedPalettes.unshift(newSavedPalette);
-//     buildSavedPalette();
-//   }
-// }
-
 function savePalette() {
   var newSavedPalette = new Palette(currentPalette.colors, paletteID);
-
-  if(savedPalettes.length === 0){
-    savedPalettes.push(newSavedPalette);
-    buildSavedPalette();
-  }
-  //check function checkHexcodeMatch if true/false
-  else if(checkHexcodeMatch() === false){
-    savedPalettes.push(newSavedPalette);
-    buildSavedPalette();
-  }
-  // paletteID++;
-}
-
-//make id be its index or dateNow
-//break this down and compare each hexcode
-function checkHexcodeMatch(){
-  for(var i = 0; i<savedPalettes.length; i++){
-    var x = savedPalettes[i].colors.hexCode;
-    if(x === currentPalette.colors.hexCode){
-      console.log("THIS MATCH IS TRUE")
-      return true;
-    }
-  }
-  console.log("THIS MATCH IS FALSE")
-  return false;
+  savePaletteBttn.disabled = true;
+  savePaletteBttn.innerText = "Palette Saved!"
+  savedPalettes.push(newSavedPalette);
+  buildSavedPalette();
+  paletteID++;
 }
 
 function buildSavedPalette() {
