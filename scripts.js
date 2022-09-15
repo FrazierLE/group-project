@@ -40,7 +40,6 @@ function generatePalette() {
     boxColors[i].style.background = defaultPalette.colors[i].hexCode;
     boxLabels[i].innerText = defaultPalette.colors[i].hexCode;
   }
-  enableSaveButton();
 }
 
 function savePalette() {
@@ -50,7 +49,7 @@ function savePalette() {
   paletteID++;
 
   buildSavedPalette();
-  disableSaveButton();
+  generatePalette();
 }
 
 function buildSavedPalette() {
@@ -74,30 +73,15 @@ function buildSavedPalette() {
   }
 }
 
-function enableSaveButton() {
-  savePaletteBttn.disabled = false;
-  savePaletteBttn.innerText = "Save Palette";
-}
-
-function disableSaveButton() {
-  savePaletteBttn.disabled = true;
-  savePaletteBttn.innerText = "Palette Saved!"
-}
 
 
-//CURRENT GOAL: first make sure ID works correctly
-//NEXT GOAL: make sure saved palette button doesn't duplicate
-
-//GOAL: user clicks save palette and colors should appear
-//on right side. No hexcode, just color and trash picture
-
-//DATA: we got HTML, CSS file
-
-//QUESTIONS: how to use flexbox to our advantage
-
-//PSEUDOCODE:
-//make containers for our saved palletes
-//make a saved palette array in script.js
-//romcom style inner html to stack dynamically with containers
-//make an event listener to register click w/ function
-//function += html containers
+//Goal: user click color and lock locks
+//Lock images, lock parameter for color, unique ids
+//Questions: add event listener on box
+//Pseudocode:
+//turn div into event listener
+//target div by id?
+//find color associated with id
+//change lock property - lock function
+//change innerText of src in img to lock.png
+//upload trash pic
