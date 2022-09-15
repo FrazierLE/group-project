@@ -1,4 +1,4 @@
-var paletteID = 1;
+var paletteID = 0;
 
 var color1 = new Color();
 var color2 = new Color();
@@ -16,16 +16,18 @@ var box2Label = document.querySelector("#color-2");
 var box3Label = document.querySelector("#color-3");
 var box4Label = document.querySelector("#color-4");
 var box5Label = document.querySelector("#color-5");
-var loadSavedPalettes = document.querySelector("#saved-box")
+
+var loadSavedPalettes = document.querySelector("#saved-box");
 var newPaletteBttn = document.querySelector("#new-palette");
-var savePaletteBttn = document.querySelector("#save-palette")
+var savePaletteBttn = document.querySelector("#save-palette");
 
 var colors = [color1, color2, color3, color4, color5];
-var boxColors = [box1Color, box2Color, box3Color, box4Color, box5Color]
-var boxLabels = [box1Label, box2Label, box3Label, box4Label, box5Label]
-var savedPalettes = []
+var boxColors = [box1Color, box2Color, box3Color, box4Color, box5Color];
+var boxLabels = [box1Label, box2Label, box3Label, box4Label, box5Label];
+var savedPalettes = [];
 
-var currentPalette = new Palette(colors);
+var defaultPalette = new Palette(colors);
+var currentPalette = defaultPalette;
 
 generatePalette();
 
@@ -33,23 +35,52 @@ newPaletteBttn.addEventListener("click", generatePalette);
 savePaletteBttn.addEventListener("click", savePalette);
 
 function generatePalette() {
-  currentPalette.updateColors();
+  defaultPalette.updateColors();
   for (i = 0; i < 5; i++) {
-    boxColors[i].style.background = currentPalette.colors[i].hexCode;
-    boxLabels[i].innerText = currentPalette.colors[i].hexCode;
+    boxColors[i].style.background = defaultPalette.colors[i].hexCode;
+    boxLabels[i].innerText = defaultPalette.colors[i].hexCode;
   }
 }
 
+// function savePalette() {
+//   if (savedPalettes.length === 0 || defaultPalette.id !== savedPalettes[0].id) {
+//     var newSavedPalette = new Palette(defaultPalette.colors);
+//     savedPalettes.unshift(newSavedPalette);
+//     buildSavedPalette();
+//   }
+// }
+
 function savePalette() {
-  if (savedPalettes.length === 0 || currentPalette.id !== savedPalettes[0].id) {
-    var newSavedPalette = new Palette(currentPalette.colors);
-    savedPalettes.unshift(newSavedPalette);
+  var newSavedPalette = new Palette(currentPalette.colors, paletteID);
+
+  if(savedPalettes.length === 0){
+    savedPalettes.push(newSavedPalette);
     buildSavedPalette();
   }
+  //check function checkHexcodeMatch if true/false
+  else if(checkHexcodeMatch() === false){
+    savedPalettes.push(newSavedPalette);
+    buildSavedPalette();
+  }
+  // paletteID++;
+}
+
+//make id be its index or dateNow
+//break this down and compare each hexcode
+function checkHexcodeMatch(){
+  for(var i = 0; i<savedPalettes.length; i++){
+    var x = savedPalettes[i].colors.hexCode;
+    if(x === currentPalette.colors.hexCode){
+      console.log("THIS MATCH IS TRUE")
+      return true;
+    }
+  }
+  console.log("THIS MATCH IS FALSE")
+  return false;
 }
 
 function buildSavedPalette() {
-  var savedPalette = savedPalettes[0];
+  var savedPalette = savedPalettes[savedPalettes.length-1];
   var savedID = savedPalette.id;
   var displaySavedPalette = `
   <div class="flex" id="saved-box">
@@ -63,11 +94,14 @@ function buildSavedPalette() {
   loadSavedPalettes.innerHTML += displaySavedPalette;
 
   for (var i = 0; i < 5; i++) {
-    var hexCodeUpdate = document.getElementById(`mini-box${i+1}-${savedID}`)
-    hexCodeUpdate.style.background = savedPalette.colors[i].hexCode
+    var hexCodeUpdate = document.getElementById(`mini-box${i+1}-${savedID}`);
+    hexCodeUpdate.style.background = savedPalette.colors[i].hexCode;
   }
 }
 
+
+//CURRENT GOAL: first make sure ID works correctly
+//NEXT GOAL: make sure saved palette button doesn't duplicate
 
 //GOAL: user clicks save palette and colors should appear
 //on right side. No hexcode, just color and trash picture

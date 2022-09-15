@@ -1,12 +1,14 @@
 class Palette {
-  constructor(colors) {
+  constructor(colors, id) {
     this.colors = colors;
-    this.id = paletteID;
-    paletteID++
+    this.id = id;
   }
   updateColors() {
     for (var i = 0; i < this.colors.length; i++) {
       this.colors[i].randomizeColor();
     }
+  }
+  updateID(){
+    this.id++;
   }
 }
