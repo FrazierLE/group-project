@@ -1,8 +1,7 @@
 class Palette {
-  constructor(colors) {
+  constructor(colors, paletteID) {
     this.colors = colors;
     this.id = paletteID;
-    paletteID++;
   }
   updateColors() {
     for (var i = 0; i < this.colors.length; i++) {

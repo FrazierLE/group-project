@@ -53,9 +53,16 @@ div {
   flex-direction: column;
 }
 
-#saved1{
+#saved-box {
+  width: 60%;
+  flex-direction: column;
+  align-items: center;
+}
+
+#palette-box {
   width: 60%;
   justify-content: space-evenly;
+  
 }
 
 #left-section {
