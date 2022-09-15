@@ -16,7 +16,7 @@ var box2Label = document.querySelector("#color-2");
 var box3Label = document.querySelector("#color-3");
 var box4Label = document.querySelector("#color-4");
 var box5Label = document.querySelector("#color-5");
-var loadSavedPalettes = document.querySelector("#display-saved-palettes")
+var loadSavedPalettes = document.querySelector("#saved-box")
 var newPaletteBttn = document.querySelector("#new-palette");
 var savePaletteBttn = document.querySelector("#save-palette")
 
@@ -38,6 +38,38 @@ function generatePalette() {
   for (i = 0; i < 5; i++) {
     boxColors[i].style.background = currentPalette.colors[i].hexCode;
     boxLabels[i].innerText = currentPalette.colors[i].hexCode;
+  }
+}
+
+function savePalette() {
+  if (savedPalettes.length === 0) {
+    savedPalettes.unshift(currentPalette);
+    buildSavedPalette();
+  }
+  else if (currentPalette.id !== savedPalettes[0].id) {
+    savedPalettes.unshift(currentPalette);
+    buildSavedPalette()
+  }
+  console.log(savedPalettes)
+}
+
+function buildSavedPalette() {
+  var savedPalette = savedPalettes[0];
+  var savedID = savedPalette.id;
+  var displaySavedPalette = `
+  <div class="flex" id="saved-box">
+  <div class="mini-box" id="mini-box1-${savedID}"></div>
+  <div class="mini-box" id="mini-box2-${savedID}"></div>
+  <div class="mini-box" id="mini-box3-${savedID}"></div>
+  <div class="mini-box" id="mini-box4-${savedID}"></div>
+  <div class="mini-box" id="mini-box5-${savedID}"></div>
+  </div>`;
+
+  loadSavedPalettes.innerHTML += displaySavedPalette;
+
+  for (var i = 0; i < 5; i++) {
+    var hexCodeUpdate = document.getElementById(`mini-box${i+1}-${savedID}`)
+    hexCodeUpdate.style.background = savedPalette.colors[i].hexCode
   }
 }
 

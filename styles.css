@@ -53,7 +53,7 @@ div {
   flex-direction: column;
 }
 
-#saved1{
+#saved-box {
   width: 60%;
   justify-content: space-evenly;
 }
