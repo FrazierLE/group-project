@@ -35,34 +35,35 @@ newPaletteBttn.addEventListener("click", generatePalette);
 savePaletteBttn.addEventListener("click", savePalette);
 
 function generatePalette() {
-  savePaletteBttn.disabled = false;
-  savePaletteBttn.innerText = "Save Palette";
   defaultPalette.updateColors();
   for (i = 0; i < 5; i++) {
     boxColors[i].style.background = defaultPalette.colors[i].hexCode;
     boxLabels[i].innerText = defaultPalette.colors[i].hexCode;
   }
+  enableSaveButton();
 }
 
 function savePalette() {
   var newSavedPalette = new Palette(currentPalette.colors, paletteID);
-  savePaletteBttn.disabled = true;
-  savePaletteBttn.innerText = "Palette Saved!"
   savedPalettes.push(newSavedPalette);
-  buildSavedPalette();
+
   paletteID++;
+
+  buildSavedPalette();
+  disableSaveButton();
 }
 
 function buildSavedPalette() {
   var savedPalette = savedPalettes[savedPalettes.length-1];
   var savedID = savedPalette.id;
   var displaySavedPalette = `
-  <div class="flex" id="saved-box">
+  <div class="flex" id="palette-box">
   <div class="mini-box" id="mini-box1-${savedID}"></div>
   <div class="mini-box" id="mini-box2-${savedID}"></div>
   <div class="mini-box" id="mini-box3-${savedID}"></div>
   <div class="mini-box" id="mini-box4-${savedID}"></div>
   <div class="mini-box" id="mini-box5-${savedID}"></div>
+  <img class="mini-box" id="bin-${savedID}" src="assets/lock.png" alt ="bin-${savedID}">
   </div>`;
 
   loadSavedPalettes.innerHTML += displaySavedPalette;
@@ -71,6 +72,16 @@ function buildSavedPalette() {
     var hexCodeUpdate = document.getElementById(`mini-box${i+1}-${savedID}`);
     hexCodeUpdate.style.background = savedPalette.colors[i].hexCode;
   }
+}
+
+function enableSaveButton() {
+  savePaletteBttn.disabled = false;
+  savePaletteBttn.innerText = "Save Palette";
+}
+
+function disableSaveButton() {
+  savePaletteBttn.disabled = true;
+  savePaletteBttn.innerText = "Palette Saved!"
 }
 
 
