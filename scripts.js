@@ -21,6 +21,7 @@ var lock2 = document.querySelector("#lock-2");
 var lock3 = document.querySelector("#lock-3");
 var lock4 = document.querySelector("#lock-4");
 var lock5 = document.querySelector("#lock-5");
+var leftSection = document.querySelector("#left-section")
 
 var loadSavedPalettes = document.querySelector("#saved-box");
 var newPaletteBttn = document.querySelector("#new-palette");
@@ -29,6 +30,7 @@ var savePaletteBttn = document.querySelector("#save-palette");
 var colors = [color1, color2, color3, color4, color5];
 var boxColors = [box1Color, box2Color, box3Color, box4Color, box5Color];
 var boxLabels = [box1Label, box2Label, box3Label, box4Label, box5Label];
+var locks = [lock1, lock2, lock3, lock4, lock5];
 var savedPalettes = [];
 
 var defaultPalette = new Palette(colors);
@@ -38,6 +40,33 @@ generatePalette();
 
 newPaletteBttn.addEventListener("click", generatePalette);
 savePaletteBttn.addEventListener("click", savePalette);
+
+leftSection.addEventListener("click", lockColor);
+
+function lockColor(event) {
+  if (event.target.classList.contains("box-style")) {
+    var lockNum = event.target.dataset.lock
+    Number(lockNum)
+    var currentLock = locks[lockNum - 1]
+    toggleLock(currentLock, lockNum)
+  }
+}
+
+function toggleLock(lock, arrayIndex) {
+  if (lock.dataset.status === `unlocked`) {
+    lock.src = `assets/lock.png`;
+    lock.alt = `locked icon`;
+    lock.dataset.status = `locked`
+    defaultPalette.colors[arrayIndex - 1].locked = true
+  }
+  else {
+    lock.src = `assets/unlock.png`;
+    lock.alt = `unlocked icon`;
+    lock.dataset.status = `unlocked`
+    defaultPalette.colors[arrayIndex - 1].locked = false
+  }
+}
+
 box1Color.addEventListener("click", lockColor1);
 box2Color.addEventListener("click", lockColor2);
 box3Color.addEventListener("click", lockColor3);
@@ -72,8 +101,11 @@ function lockColor5() {
 function generatePalette() {
   defaultPalette.updateColors();
   for (i = 0; i < 5; i++) {
-    boxColors[i].style.background = defaultPalette.colors[i].hexCode;
-    boxLabels[i].innerText = defaultPalette.colors[i].hexCode;
+    var currentColor = defaultPalette.colors[i]
+    if (currentColor.locked === false) {
+      boxColors[i].style.background = currentColor.hexCode;
+      boxLabels[i].innerText = currentColor.hexCode;
+    }
   }
 }
 
