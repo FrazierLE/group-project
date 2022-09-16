@@ -16,6 +16,11 @@ var box2Label = document.querySelector("#color-2");
 var box3Label = document.querySelector("#color-3");
 var box4Label = document.querySelector("#color-4");
 var box5Label = document.querySelector("#color-5");
+var lock1 = document.querySelector("#lock-1");
+var lock2 = document.querySelector("#lock-2");
+var lock3 = document.querySelector("#lock-3");
+var lock4 = document.querySelector("#lock-4");
+var lock5 = document.querySelector("#lock-5");
 
 var loadSavedPalettes = document.querySelector("#saved-box");
 var newPaletteBttn = document.querySelector("#new-palette");
@@ -33,6 +38,36 @@ generatePalette();
 
 newPaletteBttn.addEventListener("click", generatePalette);
 savePaletteBttn.addEventListener("click", savePalette);
+box1Color.addEventListener("click", lockColor1);
+box2Color.addEventListener("click", lockColor2);
+box3Color.addEventListener("click", lockColor3);
+box4Color.addEventListener("click", lockColor4);
+box5Color.addEventListener("click", lockColor5);
+
+function lockColor1() {
+    lock1.src = "assets/lock.png";
+    lock1.alt = "lock icon";
+}
+
+function lockColor2() {
+    lock2.src = "assets/lock.png";
+    lock2.alt = "lock icon";
+}
+
+function lockColor3() {
+    lock3.src = "assets/lock.png";
+    lock3.alt = "lock icon";
+}
+
+function lockColor4() {
+    lock4.src = "assets/lock.png";
+    lock4.alt = "lock icon";
+}
+
+function lockColor5() {
+    lock5.src = "assets/lock.png";
+    lock5.alt = "lock icon";
+}
 
 function generatePalette() {
   defaultPalette.updateColors();
@@ -75,9 +110,9 @@ function buildSavedPalette() {
 
 
 
-//Goal: user click color and lock locks
+//Goal: when user clicks color...it unlocks & locks
 //Lock images, lock parameter for color, unique ids
-//Questions: add event listener on box
+//Questions: add event listener on box. Research Toggle (lock).
 //Pseudocode:
 //turn div into event listener
 //target div by id?
