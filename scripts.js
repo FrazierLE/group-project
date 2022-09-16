@@ -62,7 +62,7 @@ function buildSavedPalette() {
   <div class="mini-box" id="mini-box3-${savedID}"></div>
   <div class="mini-box" id="mini-box4-${savedID}"></div>
   <div class="mini-box" id="mini-box5-${savedID}"></div>
-  <img class="mini-box" id="bin-${savedID}" src="assets/lock.png" alt ="bin-${savedID}">
+  <img class="mini-box" id="bin-${savedID}" src="assets/trash.png" alt ="bin-${savedID}">
   </div>`;
 
   loadSavedPalettes.innerHTML += displaySavedPalette;
@@ -84,4 +84,3 @@ function buildSavedPalette() {
 //find color associated with id
 //change lock property - lock function
 //change innerText of src in img to lock.png
-//upload trash pic

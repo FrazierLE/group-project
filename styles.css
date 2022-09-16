@@ -62,7 +62,7 @@ div {
 #palette-box {
   width: 60%;
   justify-content: space-evenly;
-  
+
 }
 
 #left-section {
@@ -75,7 +75,7 @@ div {
 
 #buttons {
   justify-content: center;
-  justify-content: space-evenly;
+  gap: 7em;
   margin-top: 5vh;
   border-style: dotted;
 }
