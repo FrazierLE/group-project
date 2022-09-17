@@ -32,6 +32,10 @@ font-size: 20px;
   height: 5vh;
 }
 
+.hidden {
+  display: none;
+}
+
 main {
   border-style: dashed;
   height: 100vh;

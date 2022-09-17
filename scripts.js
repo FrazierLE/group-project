@@ -140,14 +140,19 @@ function buildSavedPalette() {
   }
 }
 
+loadSavedPalettes.addEventListener('click', deleteSavedPalette)
+
+function deleteSavedPalette(event) {
+  if(event.target.id.includes('bin')) {
+    event.target.parentElement.remove()
+  }
+
+}
 
 
-//Goal: when user clicks color...it unlocks & locks
-//Lock images, lock parameter for color, unique ids
-//Questions: add event listener on box. Research Toggle (lock).
-//Pseudocode:
-//turn div into event listener
-//target div by id?
-//find color associated with id
-//change lock property - lock function
-//change innerText of src in img to lock.png
+
+//goal: to delete whole saved palette and the data in the arrayIndex
+//data: loadSavedPalettes variable, innerHTML, event.target, saved palettes array, data attribute?
+
+//add data attribute data - savedID - match what's in saved array .dataset.dataattribute
+//
