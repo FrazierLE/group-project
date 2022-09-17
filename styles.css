@@ -32,6 +32,10 @@ font-size: 20px;
   height: 5vh;
 }
 
+.hidden {
+  display: none;
+}
+
 main {
   border-style: dashed;
   height: 100vh;
@@ -62,7 +66,7 @@ div {
 #palette-box {
   width: 60%;
   justify-content: space-evenly;
-  
+
 }
 
 #left-section {
@@ -75,7 +79,7 @@ div {
 
 #buttons {
   justify-content: center;
-  justify-content: space-evenly;
+  gap: 7em;
   margin-top: 5vh;
   border-style: dotted;
 }
