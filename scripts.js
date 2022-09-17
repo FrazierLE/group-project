@@ -21,8 +21,7 @@ var lock2 = document.querySelector("#lock-2");
 var lock3 = document.querySelector("#lock-3");
 var lock4 = document.querySelector("#lock-4");
 var lock5 = document.querySelector("#lock-5");
-var leftSection = document.querySelector("#left-section")
-
+var leftSection = document.querySelector("#left-section");
 var loadSavedPalettes = document.querySelector("#saved-box");
 var newPaletteBttn = document.querySelector("#new-palette");
 var savePaletteBttn = document.querySelector("#save-palette");
@@ -40,68 +39,37 @@ generatePalette();
 
 newPaletteBttn.addEventListener("click", generatePalette);
 savePaletteBttn.addEventListener("click", savePalette);
-
 leftSection.addEventListener("click", lockColor);
+loadSavedPalettes.addEventListener('click', deleteSavedPalette);
 
 function lockColor(event) {
   if (event.target.classList.contains("box-style")) {
-    var lockNum = event.target.dataset.lock
-    Number(lockNum)
-    var currentLock = locks[lockNum - 1]
-    toggleLock(currentLock, lockNum)
+    var lockNum = event.target.dataset.lock;
+    Number(lockNum);
+    var currentLock = locks[lockNum - 1];
+    toggleLock(currentLock, lockNum);
   }
 }
 
 function toggleLock(lock, arrayIndex) {
-  if (lock.dataset.status === `unlocked`) {
-    lock.src = `assets/lock.png`;
-    lock.alt = `locked icon`;
-    lock.dataset.status = `locked`
-    defaultPalette.colors[arrayIndex - 1].locked = true
+  if (lock.dataset.status === "unlocked") {
+    lock.src = "assets/lock.png";
+    lock.alt = "locked icon";
+    lock.dataset.status = "locked";
+    defaultPalette.colors[arrayIndex - 1].locked = true;
   }
   else {
-    lock.src = `assets/unlock.png`;
-    lock.alt = `unlocked icon`;
-    lock.dataset.status = `unlocked`
-    defaultPalette.colors[arrayIndex - 1].locked = false
+    lock.src = "assets/unlock.png";
+    lock.alt = "unlocked icon";
+    lock.dataset.status = "unlocked";
+    defaultPalette.colors[arrayIndex - 1].locked = false;
   }
-}
-
-box1Color.addEventListener("click", lockColor1);
-box2Color.addEventListener("click", lockColor2);
-box3Color.addEventListener("click", lockColor3);
-box4Color.addEventListener("click", lockColor4);
-box5Color.addEventListener("click", lockColor5);
-
-function lockColor1() {
-    lock1.src = "assets/lock.png";
-    lock1.alt = "lock icon";
-}
-
-function lockColor2() {
-    lock2.src = "assets/lock.png";
-    lock2.alt = "lock icon";
-}
-
-function lockColor3() {
-    lock3.src = "assets/lock.png";
-    lock3.alt = "lock icon";
-}
-
-function lockColor4() {
-    lock4.src = "assets/lock.png";
-    lock4.alt = "lock icon";
-}
-
-function lockColor5() {
-    lock5.src = "assets/lock.png";
-    lock5.alt = "lock icon";
 }
 
 function generatePalette() {
   defaultPalette.updateColors();
   for (i = 0; i < 5; i++) {
-    var currentColor = defaultPalette.colors[i]
+    var currentColor = defaultPalette.colors[i];
     if (currentColor.locked === false) {
       boxColors[i].style.background = currentColor.hexCode;
       boxLabels[i].innerText = currentColor.hexCode;
@@ -123,7 +91,7 @@ function buildSavedPalette() {
   var savedPalette = savedPalettes[savedPalettes.length-1];
   var savedID = savedPalette.id;
   var displaySavedPalette = `
-  <div class="flex" id="${savedID}" data-paletteID="${savedID}">
+  <div class="flex" id="${savedID}">
   <div class="mini-box" id="mini-box1-${savedID}"></div>
   <div class="mini-box" id="mini-box2-${savedID}"></div>
   <div class="mini-box" id="mini-box3-${savedID}"></div>
@@ -140,13 +108,11 @@ function buildSavedPalette() {
   }
 }
 
-loadSavedPalettes.addEventListener('click', deleteSavedPalette)
-
 function deleteSavedPalette(event) {
   if(event.target.id.includes('bin')) {
-    event.target.parentElement.remove()
+    event.target.parentElement.remove();
   }
-  updateSavedArray(event)
+  updateSavedArray(event);
 }
 
 function updateSavedArray(event) {
