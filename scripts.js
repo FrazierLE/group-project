@@ -123,13 +123,13 @@ function buildSavedPalette() {
   var savedPalette = savedPalettes[savedPalettes.length-1];
   var savedID = savedPalette.id;
   var displaySavedPalette = `
-  <div class="flex" id="palette-box">
+  <div class="flex" id="palette-box" data-paletteID="${savedID}">
   <div class="mini-box" id="mini-box1-${savedID}"></div>
   <div class="mini-box" id="mini-box2-${savedID}"></div>
   <div class="mini-box" id="mini-box3-${savedID}"></div>
   <div class="mini-box" id="mini-box4-${savedID}"></div>
   <div class="mini-box" id="mini-box5-${savedID}"></div>
-  <img class="mini-box" id="bin-${savedID}" src="assets/trash.png" alt ="bin-${savedID}">
+  <img class="mini-box" id="bin-${savedID}" src="assets/trash.png" alt="bin-${savedID}">
   </div>`;
 
   loadSavedPalettes.innerHTML += displaySavedPalette;
@@ -146,9 +146,18 @@ function deleteSavedPalette(event) {
   if(event.target.id.includes('bin')) {
     event.target.parentElement.remove()
   }
-
+  updateSavedArray(event)
 }
 
+function updateSavedArray(event) {
+  for (var i = 0; i < savedPalettes.length; i++) {
+    console.log(event.target.dataset.paletteID)
+    var savedPalettesIndex = Number(event.target.dataset.paletteID)
+  if (savedPalettes[i].id === savedPalettesIndex) {
+      savedPalettes.splice(i, 1);
+    }
+  }
+}
 
 
 //goal: to delete whole saved palette and the data in the arrayIndex
