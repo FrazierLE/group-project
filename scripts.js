@@ -123,7 +123,7 @@ function buildSavedPalette() {
   var savedPalette = savedPalettes[savedPalettes.length-1];
   var savedID = savedPalette.id;
   var displaySavedPalette = `
-  <div class="flex" id="palette-box" data-paletteID="${savedID}">
+  <div class="flex" id="${savedID}" data-paletteID="${savedID}">
   <div class="mini-box" id="mini-box1-${savedID}"></div>
   <div class="mini-box" id="mini-box2-${savedID}"></div>
   <div class="mini-box" id="mini-box3-${savedID}"></div>
@@ -150,18 +150,10 @@ function deleteSavedPalette(event) {
 }
 
 function updateSavedArray(event) {
+  var savedPalettesIndex = Number(event.target.parentNode.id)
   for (var i = 0; i < savedPalettes.length; i++) {
-    console.log(event.target.dataset.paletteID)
-    var savedPalettesIndex = Number(event.target.dataset.paletteID)
-  if (savedPalettes[i].id === savedPalettesIndex) {
+    if (savedPalettes[i].id === savedPalettesIndex) {
       savedPalettes.splice(i, 1);
     }
   }
 }
-
-
-//goal: to delete whole saved palette and the data in the arrayIndex
-//data: loadSavedPalettes variable, innerHTML, event.target, saved palettes array, data attribute?
-
-//add data attribute data - savedID - match what's in saved array .dataset.dataattribute
-//
