@@ -91,13 +91,13 @@ function buildSavedPalette() {
   var savedPalette = savedPalettes[savedPalettes.length-1];
   var savedID = savedPalette.id;
   var displaySavedPalette = `
-  <div class="flex" id="${savedID}">
+  <div class="flex mini-boxes" id="${savedID}">
   <div class="mini-box" id="mini-box1-${savedID}"></div>
   <div class="mini-box" id="mini-box2-${savedID}"></div>
   <div class="mini-box" id="mini-box3-${savedID}"></div>
   <div class="mini-box" id="mini-box4-${savedID}"></div>
   <div class="mini-box" id="mini-box5-${savedID}"></div>
-  <img class="mini-box" id="bin-${savedID}" src="assets/trash.png" alt="bin-${savedID}">
+  <img class="mini-box bin" id="bin-${savedID}" src="assets/trash.png" alt="bin-${savedID}">
   </div>`;
 
   loadSavedPalettes.innerHTML += displaySavedPalette;

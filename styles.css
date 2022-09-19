@@ -22,15 +22,23 @@ html {
   height: 150px;
   width: 150px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .mini-box {
-  height: 20px;
-  width: 20px;
+  height: 40px;
+  width: 40px;
+  border: 1px solid white;
+  margin: 15px 2px 15px 2px;
+  border-radius: 5px;
 }
 
 .lock-size {
   height: 2vh;
+}
+
+.bin {
+  cursor: pointer;
 }
 
 main {
@@ -89,4 +97,17 @@ h3 {
 #new-palette, #save-palette {
   font-size: 1.8rem;
   width: 15%;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background: slategray;
+}
+
+button.button#new-palette:hover,
+button.button#save-palette:hover {
+  background-color: white;
+  color: slategray;
+  border: 2px solid gray;
+  transition: 0.3s;
+  cursor: pointer;
 }
