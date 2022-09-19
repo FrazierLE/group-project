@@ -47,4 +47,4 @@ CHALLENGES:
 1. Flexbox and CSS
 
 ### Additional Attachments:
-There is an excel sheet attachment with this repo. This excel sheet helps readers understand what is occurring on each line in the scripts.js file.
+There is an excel sheet attachment with this link (https://docs.google.com/spreadsheets/d/11MGPaCizQZxq_U6jdGcjLsC3CquSq9zm4vjAnj6Hz7Y/edit#gid=0). This excel sheet helps readers understand what is occurring on each line in the scripts.js file.
