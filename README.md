@@ -13,17 +13,19 @@ We built a website that generates a palette of 5 random colors with hexcodes whi
 
 ### Preview of App:
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
+<img width="1440" alt="Screen Shot 2022-09-19 at 1 07 46 PM" src="https://user-images.githubusercontent.com/19957834/191110792-0ad63f22-09ec-4c41-987d-cad8aef12ebf.png">
+
 
 ### Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
 This application took us ~25 hours to make. We are in week 4 of mod 1.
 
 ### Contributors:
-[//]: <> (Who worked on this application? Link to their GitHubs
-https://github.com/FrazierLE
-https://github.com/jwasmer
-https://github.com/Mr-Daniels-2025
-https://github.com/knpausch
+[//]: <> (Who worked on this application? Link to their GitHubs)
+* https://github.com/FrazierLE
+* https://github.com/jwasmer
+* https://github.com/Mr-Daniels-2025
+* https://github.com/knpausch
 
 ### Learning Goals:
 [//]: <> (What were the learning goals of this project? What tech did you work with?)
@@ -47,4 +49,4 @@ CHALLENGES:
 1. Flexbox and CSS
 
 ### Additional Attachments:
-There is an excel sheet attachment with this repo. This excel sheet helps readers understand what is occurring on each line in the scripts.js file.
+There is an excel sheet attachment with this link(https://docs.google.com/spreadsheets/d/11MGPaCizQZxq_U6jdGcjLsC3CquSq9zm4vjAnj6Hz7Y/edit#gid=0). This excel sheet helps readers understand what is occurring on each line in the scripts.js file.
