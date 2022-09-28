@@ -10,7 +10,7 @@ We built a website that generates a palette of 5 random colors with hexcodes whi
 1. Clone SSH code
 1. Open terminal and git clone SSH link
 1. Run command: open index.html to run the code
-Deployed Link: https://frazierle.github.io/group-project/
+* Deployed Link: https://frazierle.github.io/group-project/
 
 ### Preview of App:
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
